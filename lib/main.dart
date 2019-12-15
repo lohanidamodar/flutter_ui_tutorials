@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ui_tutorials/sliver_app_bar.dart';
 
 void main() => runApp(MyApp());
 
@@ -11,6 +12,9 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: HomePage(),
+      routes: {
+        "sliver_app_bar": (_) => SliverAppBarPage(),
+      },
     );
   }
 }
@@ -22,13 +26,13 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Flutter UI tutorials'),
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-
-          ],
-        ),
+      body: ListView(
+        children: <Widget>[
+          ListTile(
+            title: Text("Sliver app bar"),
+            onTap: () => Navigator.pushNamed(context, 'sliver_app_bar'),
+          )
+        ],
       ),
     );
   }
